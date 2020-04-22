@@ -34,16 +34,7 @@
 
 		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Inventario"){
 
-			echo '<li>
-
-				<a href="categorias">
-
-					<i class="fa fa-th"></i>
-					<span>Categorías</span>
-
-				</a>
-
-			</li>
+			echo '
 
 			<li>
 
@@ -58,20 +49,20 @@
 
 		}
 
-		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
+		// if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
 
-			echo '<li>
+		// 	echo '<li>
 
-				<a href="clientes">
+		// 		<a href="clientes">
 
-					<i class="fa fa-users"></i>
-					<span>Clientes</span>
+		// 			<i class="fa fa-users"></i>
+		// 			<span>Clientes</span>
 
-				</a>
+		// 		</a>
 
-			</li>';
+		// 	</li>';
 
-		}
+		// }
 
 		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
 

@@ -3,8 +3,7 @@
 require_once "../controladores/productos.controlador.php";
 require_once "../modelos/productos.modelo.php";
 
-require_once "../controladores/categorias.controlador.php";
-require_once "../modelos/categorias.modelo.php";
+
 
 
 class TablaProductos{
@@ -33,24 +32,7 @@ class TablaProductos{
 
 		  for($i = 0; $i < count($productos); $i++){
 
-		  	/*=============================================
- 	 		TRAEMOS LA IMAGEN
-  			=============================================*/ 
 
-		  	$imagen = "<img src='".$productos[$i]["imagen"]."' width='40px'>";
-
-		  	/*=============================================
- 	 		TRAEMOS LA CATEGORÍA
-  			=============================================*/ 
-
-		  	$item = "id";
-		  	$valor = $productos[$i]["id_categoria"];
-
-		  	$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-		  	/*=============================================
- 	 		STOCK
-  			=============================================*/ 
 
   			if($productos[$i]["stock"] <= 10){
 
@@ -83,12 +65,9 @@ class TablaProductos{
 		 
 		  	$datosJson .='[
 			      "'.($i+1).'",
-			      "'.$imagen.'",
-			      "'.$productos[$i]["codigo"].'",
 			      "'.$productos[$i]["descripcion"].'",
-			      "'.$categorias["categoria"].'",
 			      "'.$stock.'",
-			      "'.$productos[$i]["precio_compra"].'",
+			      "'.$productos[$i]["precio_venta"].'",
 			      "'.$productos[$i]["precio_venta"].'",
 			      "'.$productos[$i]["fecha"].'",
 			      "'.$botones.'"
