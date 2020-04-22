@@ -14,20 +14,17 @@ if ($_SESSION["perfil"] == "Vendedor") {
 ?>
 
 <script>
-function format(input)
-{
-var num = input.value.replace(/\./g,'');
-if(!isNaN(num)){
-num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
-num = num.split('').reverse().join('').replace(/^[\.]/,'');
-input.value = num;
-}
- 
-else{ alert('Solo se permiten numeros');
-input.value = input.value.replace(/[^\d\.]*/g,'');
-}
-}
-
+  function format(input) {
+    var num = input.value.replace(/\./g, '');
+    if (!isNaN(num)) {
+      num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
+      num = num.split('').reverse().join('').replace(/^[\.]/, '');
+      input.value = num;
+    } else {
+      alert('Solo se permiten numeros');
+      input.value = input.value.replace(/[^\d\.]*/g, '');
+    }
+  }
 </script>
 <div class="content-wrapper">
 
@@ -184,18 +181,22 @@ MODAL AGREGAR PRODUCTO
                 </div>
 
                 <br>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                <!--=====================================
+        <!--=====================================
         PIE DEL MODAL
         ======================================-->
 
-                <div class="modal-footer">
+        <div class="modal-footer">
 
-                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-                  <button type="submit" class="btn btn-primary">Guardar producto</button>
+          <button type="submit" class="btn btn-primary">Guardar producto</button>
 
-                </div>
+        </div>
 
       </form>
 
