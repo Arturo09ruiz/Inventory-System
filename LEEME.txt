@@ -1,0 +1,22 @@
+1- Descomprime , Y Copia A Htcdocs eso lo sabes ok
+2- Abre PhpMyAdmin Y Copia la Base de datos ella en el sql , Se crea sola y todo asi que solo debes copiar
+3- Hay 3 Usuarios
+ 
+USUARIO            CONTRASEÑA:
+admin               admin
+inventario        inventario
+vendedor           vendedor
+
+
+Admin Tiene Acceso a todo
+
+Inventario solo a Crear Categorias y Productos
+
+Y Vendedor solo a Clientes y Ventas , En la parte de ventas solo el admin puede modificar y borrar una venta
+El Vendedor solo puede crearla y imprimir la factura
+
+Te lo deje todo solo de que entres en C:\xampp\htdocs\Sistema_de_Facturacion\extensiones\tcpdf\pdf\factura.php
+Y crees lo que vas a hacer de que se imprima solo no se pero alli es donde se genera la factura
+
+
+Me avisas como te fue con esa venta ¡ 
