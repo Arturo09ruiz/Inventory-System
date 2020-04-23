@@ -93,13 +93,19 @@ $("#nuevaCategoria").change(function () {
 /*FORMATO PRECIO DE VENTA*/
 $("#PrecioVenta").number(true, 2);
 $("#PrecioVentaPunto").number(true, 2);
+$("#editarPrecioVentaa").number(true, 2);
+$("#editarPrecioVentaPuntoo").number(true, 2);
+
+
+
+
 
 
 $("#PrecioVenta").change(function () {
 
 	var primerValor = $('#PrecioVenta').val();
 	$('#nuevoPrecioVenta').val(primerValor);
-	
+
 
 })
 
@@ -108,9 +114,45 @@ $("#PrecioVentaPunto").change(function () {
 
 	var primerValor = $('#PrecioVentaPunto').val();
 	$('#nuevoPrecioVentaPunto').val(primerValor);
-	
+
 
 })
+
+
+
+
+
+
+$("#editarPrecioVentaa").change(function () {
+
+	var primerValor = $('#editarPrecioVentaa').val();
+	$('#editarPrecioVenta').val(primerValor);
+
+})
+
+
+
+
+
+
+$("#editarPrecioVentaPuntoo").change(function () {
+
+	var primerValor = $('#editarPrecioVentaPuntoo').val();
+	$('#editarPrecioVentaPunto').val(primerValor);
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*=============================================
 EDITAR PRODUCTO
@@ -154,18 +196,11 @@ $(".tablaProductos tbody").on("click", "button.btnEditarProducto", function () {
 
 			})
 
-			$("#editarCategoria").val(respuesta["id_categoria"]);
-
-
-			$("#editarCodigo").val(respuesta["codigo"]);
-
 			$("#editarDescripcion").val(respuesta["descripcion"]);
 
 			$("#editarStock").val(respuesta["stock"]);
 
-			$("#editarPrecioCompra").val(respuesta["precio_compra"]);
-
-			$("#editarPrecioVenta").val(respuesta["precio_venta"]);
+			$("#editarStock").val(respuesta["stock"]);
 
 			if (respuesta["imagen"] != "") {
 
