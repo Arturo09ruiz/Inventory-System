@@ -162,7 +162,9 @@ MODAL AGREGAR PRODUCTO
 
                   <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span>
 
-                  <input type="text" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" placeholder="Precio efectivo" required>
+                  <input type="text" class="form-control input-lg" id="PrecioVenta" name="PrecioVenta" step="any" min="0" placeholder="Precio efectivo" required>
+
+                  <input type="hidden" id="nuevoPrecioVenta" name="nuevoPrecioVenta">
 
                 </div>
 
@@ -176,7 +178,8 @@ MODAL AGREGAR PRODUCTO
 
                   <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span>
 
-                  <input type="text" class="form-control input-lg" id="nuevoPrecioVentaPunto" name="nuevoPrecioVentaPunto" step="any" min="0" placeholder="Precio Punto" required>
+                  <input type="text" class="form-control input-lg" id="PrecioVentaPunto" name="PrecioVentaPunto" step="any" min="0" placeholder="Precio Punto" required>
+                  <input type="hidden" id="nuevoPrecioVentaPunto" name="nuevoPrecioVentaPunto">
 
                 </div>
 
@@ -246,55 +249,6 @@ MODAL EDITAR PRODUCTO
           <div class="box-body">
 
 
-            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
-
-
-
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-th"></i></span>
-
-                <select class="form-control input-lg" name="editarCategoria" required>
-
-                  <option value="">Selecionar categoría</option>
-
-                  <?php
-
-                  $item = null;
-                  $valor = null;
-
-                  $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-                  foreach ($categorias as $key => $value) {
-
-                    echo '<option value="' . $value["id"] . '">' . $value["categoria"] . '</option>';
-                  }
-
-                  ?>
-
-
-                </select>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL CÓDIGO -->
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-code"></i></span>
-
-                <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" readonly required>
-
-              </div>
-
-            </div>
 
             <!-- ENTRADA PARA LA DESCRIPCIÓN -->
 
@@ -388,23 +342,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA SUBIR FOTO -->
-
-            <div class="form-group">
-
-              <div class="panel">SUBIR IMAGEN</div>
-
-              <input type="file" class="nuevaImagen" name="editarImagen">
-
-              <p class="help-block">Peso máximo de la imagen 2MB</p>
-
-              <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
-
-              <input type="hidden" name="imagenActual" id="imagenActual">
-
-            </div>
-
-          </div>
+          
 
         </div>
 

@@ -91,17 +91,26 @@ $("#nuevaCategoria").change(function () {
 
 
 /*FORMATO PRECIO DE VENTA*/
+$("#PrecioVenta").number(true, 2);
+$("#PrecioVentaPunto").number(true, 2);
 
 
-$("#nuevoPrecioVenta").number(true, 2);
+$("#PrecioVenta").change(function () {
+
+	var primerValor = $('#PrecioVenta').val();
+	$('#nuevoPrecioVenta').val(primerValor);
+	
+
+})
 
 
+$("#PrecioVentaPunto").change(function () {
 
-$("#nuevoPrecioVentaPunto").number(true, 2);
+	var primerValor = $('#PrecioVentaPunto').val();
+	$('#nuevoPrecioVentaPunto').val(primerValor);
+	
 
-
-
-
+})
 
 /*=============================================
 EDITAR PRODUCTO

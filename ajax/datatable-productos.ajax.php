@@ -68,7 +68,7 @@ class TablaProductos{
 			      "'.$productos[$i]["descripcion"].'",
 			      "'.$stock.'",
 			      "'.$productos[$i]["precio_venta"].'",
-			      "'.$productos[$i]["precio_venta"].'",
+			      "'.$productos[$i]["precio_venta_punto"].'",
 			      "'.$productos[$i]["fecha"].'",
 			      "'.$botones.'"
 			    ],';
