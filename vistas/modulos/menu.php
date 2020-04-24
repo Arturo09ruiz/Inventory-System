@@ -98,7 +98,7 @@
 						<a href="crear-venta">
 							
 							<i class="fa fa-circle-o"></i>
-							<span>Crear venta</span>
+							<span>Cierre del día</span>
 
 						</a>
 

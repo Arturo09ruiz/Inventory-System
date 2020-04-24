@@ -1,3 +1,24 @@
+<style>
+    .gh{
+        transform: translate(550px);
+      }
+    .hg{
+        transform: translate(270px);
+        width: 750px;
+      }
+      .as{
+        transform: translate(30px);
+      }
+</style> 
+
+
+<script>
+// In your Javascript (external .js resource or <script> tag)
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
+
 <?php
 
 if($_SESSION["perfil"] == "Especial"){
@@ -18,9 +39,9 @@ if($_SESSION["perfil"] == "Especial"){
 
   <section class="content-header">
     
-    <h1>
+    <h1 class="gh">
       
-      Crear venta
+      Cierre del día
     
     </h1>
 
@@ -28,21 +49,21 @@ if($_SESSION["perfil"] == "Especial"){
       
       <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Crear venta</li>
+      <li class="active">Cierre del día</li>
     
     </ol>
 
   </section>
-
-  <section class="content">
+<br>
+  <section class="">
 
     <div class="row">
 
       <!--=====================================
       EL FORMULARIO
       ======================================-->
-      
-      <div class="col-lg-5 col-xs-12">
+     
+      <div class="hg">
         
         <div class="box box-success">
           
@@ -118,62 +139,52 @@ if($_SESSION["perfil"] == "Especial"){
                 
                 </div>
 
-                <!--=====================================
-                ENTRADA DEL CLIENTE
-                ======================================--> 
-
-                <div class="form-group">
-                  
-                  <div class="input-group">
-                    
-                    <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                    
-                    <select class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
-
-                    <option value="">Seleccionar cliente</option>
-
-                    <?php
-
-                      $item = null;
-                      $valor = null;
-
-                      $categorias = ControladorClientes::ctrMostrarClientes($item, $valor);
-
-                       foreach ($categorias as $key => $value) {
-
-                         echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
-
-                       }
-
-                    ?>
-
-                    </select>
-                    
-                    <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAgregarCliente" data-dismiss="modal">Agregar cliente</button></span>
-                  
-                  </div>
-                
-                </div>
-
+           
                 <!--=====================================
                 ENTRADA PARA AGREGAR PRODUCTO
                 ======================================--> 
-
+               
                 <div class="form-group row nuevoProducto">
 
                 
 
                 </div>
+                <div class="form-group row nuevoCristal">
 
+                
+
+                </div>
                 <input type="hidden" id="listaProductos" name="listaProductos">
 
                 <!--=====================================
                 BOTÓN PARA AGREGAR PRODUCTO
                 ======================================-->
 
-                <button type="button" class="btn btn-default hidden-lg btnAgregarProducto">Agregar producto</button>
+                <button type="button" class="btn btn-info lg btnAgregarProducto">Agregar Producto</button>
+                
+
+
+
+                
+
+
+
+               
+
+                <input type="hidden" id="listaCristales" name="listaCristales">
+
+                <!--=====================================
+                BOTÓN PARA AGREGAR PRODUCTO
+                ======================================-->
+
 
                 <hr>
+
+
+
+
+
+
 
                 <div class="row">
 
@@ -181,98 +192,67 @@ if($_SESSION["perfil"] == "Especial"){
                   ENTRADA IMPUESTOS Y TOTAL
                   ======================================-->
                   
-                  <div class="col-xs-8 pull-right">
+                  <div class="col-md-10 pull-right">
                     
-                    <table class="table">
+                  <table class="table">
 
-                      <thead>
+<thead>
 
-                        <tr>
-                          <th>Impuesto</th>
-                          <th>Total</th>      
-                        </tr>
+  <tr>
+    <th>Total Venta Punto</th>   
+    <th>Total Venta Efectivo</th>
+  </tr>
 
-                      </thead>
+</thead>
 
-                      <tbody>
-                      
-                        <tr>
-                          
-                          <td style="width: 50%">
-                            
-                            <div class="input-group">
-                           
-                              <input type="number" class="form-control input-lg" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" placeholder="0" required>
+<tbody>
 
-                               <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto" required>
-
-                               <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto" required>
-
-                              <span class="input-group-addon"><i class="fa fa-percent"></i></span>
-                        
-                            </div>
-
-                          </td>
-
-                           <td style="width: 50%">
-                            
-                            <div class="input-group">
-                           
-                              <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
-
-                              <input type="text" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" total="" placeholder="00000" readonly required>
-
-                              <input type="hidden" name="totalVenta" id="totalVenta">
-                              
-                        
-                            </div>
-
-                          </td>
-
-                        </tr>
-
-                      </tbody>
-
-                    </table>
-
-                  </div>
-
-                </div>
-
-                <hr>
-
-                <!--=====================================
-                ENTRADA MÉTODO DE PAGO
-                ======================================-->
-
-                <div class="form-group row">
-                  
-                  <div class="col-xs-6" style="padding-right:0px">
-                    
-                     <div class="input-group">
-                  
-                      <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required>
-                        <option value="">Seleccione método de pago</option>
-                        <option value="Efectivo">Efectivo</option>
-                        <option value="TC">Tarjeta Crédito</option>
-                        <option value="TD">Tarjeta Débito</option>                  
-                      </select>    
-
-                    </div>
-
-                  </div>
-
-                  <div class="cajasMetodoPago"></div>
-
-                  <input type="hidden" id="listaMetodoPago" name="listaMetodoPago">
-
-                </div>
-
-                <br>
+  <tr>
+    
+    <td style="width: 50%">
       
-              </div>
+      <div class="input-group">
+     
 
-          </div>
+      <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+
+<input type="text" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" total="" placeholder="00000" readonly required>
+
+<input type="hidden" name="totalVenta" id="totalVenta">
+
+  
+      </div>
+
+    </td>
+
+     <td style="width: 50%">
+      
+      <div class="input-group">
+     
+        <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+
+        <input type="text" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" total="" placeholder="00000" readonly required>
+
+        <input type="hidden" name="totalVenta" id="totalVenta">
+        
+  
+      </div>
+
+    </td>
+
+  </tr>
+
+</tbody>
+
+</table>
+
+
+                  </div>
+
+
+                </div>
+
+
 
           <div class="box-footer">
 
@@ -293,41 +273,6 @@ if($_SESSION["perfil"] == "Especial"){
             
       </div>
 
-      <!--=====================================
-      LA TABLA DE PRODUCTOS
-      ======================================-->
-
-      <div class="col-lg-7 hidden-md hidden-sm hidden-xs">
-        
-        <div class="box box-warning">
-
-          <div class="box-header with-border"></div>
-
-          <div class="box-body">
-            
-            <table class="table table-bordered table-striped dt-responsive tablaVentas">
-              
-               <thead>
-
-                 <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Imagen</th>
-                  <th>Código</th>
-                  <th>Descripcion</th>
-                  <th>Stock</th>
-                  <th>Acciones</th>
-                </tr>
-
-              </thead>
-
-            </table>
-
-          </div>
-
-        </div>
-
-
-      </div>
 
     </div>
    
@@ -481,3 +426,42 @@ MODAL AGREGAR CLIENTE
   </div>
 
 </div>
+
+
+
+
+<div id="myModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <h3 style="text-align:center">Precio Del Dolar</h3>
+            </div>
+            <div class="modal-body">
+                <iframe width="575" height="450" frameborder="0" allowfullscreen=""></iframe>
+            </div>
+            <div class="modal-footer">
+
+            <strong>Copyright &copy; 2020 <a href="#" target="_blank">Artic Solutions</a>.</strong>
+            Todos los derechos reservados.
+            <strong>Version 1.0</strong>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $('#link').click(function () {
+        var src = 'https://monitordolarvenezuela.com/';
+        $('#myModal').modal('show');
+        $('#myModal iframe').attr('src', src);
+    });
+
+    $('#myModal button').click(function () {
+        $('#myModal iframe').removeAttr('src');
+    });
+</script>
